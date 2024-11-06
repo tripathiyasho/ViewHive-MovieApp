@@ -1,12 +1,12 @@
 import React from "react";
-import Sidenav from "./partials/Sidenav";
-import Topnav from "./partials/Topnav";
 import axios from "../utils/axios";
 import { useState, useEffect } from "react";
 import Header from "./partials/Header";
 import HorizontalCards from "./partials/HorizontalCards";
 import Dropdown from "./partials/Dropdown";
 import Loading from "./Loading";
+import Nav from "./partials/Nav";
+
 
 const Home = () => {
   document.title = "ViewHive | Homapage";
@@ -48,31 +48,13 @@ const Home = () => {
 
   return wallpaper && trending ? (
     <>
-      {/* Toggle button */}
-      {/* <button
-        onClick={toggleSidenav}
-        className="fixed top-2 right-5 z-20 p-3  text-white  "
-      >
-        {isSidenavOpen ? (
-          
-<i className="ri-close-circle-line p-2 text-xl"> Close </i>
-        ) : (
-          
-<i className="ri-menu-line p-2 text-xl"> Menu</i>
-        )}
-      </button> */}
-
-      {/* Conditionally render sidenav */}
-      {isSidenavOpen && <Sidenav  />}
+      
       
       <div
-        className={`${
-          isSidenavOpen
-            ? "w-[84.5%] h-full overflow-auto overflow-x-hidden transition-all  duration-1000 ease-out"
-            : "w-full h-full overflow-auto overflow-x-hidden transition  ease-out duration-1000  "
-        }  `}
+        className={"w-full h-full overflow-auto overflow-x-hidden "}
       >
-        <Topnav toggleSidenav={toggleSidenav} isSide={isSidenavOpen}  />
+        <Nav toggleSidenav={toggleSidenav} isSide={isSidenavOpen} />
+
         <Header data={wallpaper} />
 
         <div className="px-5 pt-4 flex items-center justify-between 	">
