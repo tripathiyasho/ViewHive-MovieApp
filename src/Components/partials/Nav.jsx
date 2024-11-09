@@ -26,7 +26,7 @@ const Nav = () => {
   }, [query]);
   return (
     <>
-      <nav className="sticky top-0 z-50 backdrop-blur-lg border-b border-neutral-700/80  lg:text-sm text-white">
+      <nav className="sticky top-0 z-50 backdrop-blur-lg border-neutral-700/80  lg:text-sm text-white">
         <div className="flex justify-between items-center flex-shrink-0 lg:p-2">
           {/* menu */}
           <div className="ml-1 ">
@@ -92,7 +92,7 @@ const Nav = () => {
       {!isSidenavOpen && (
         <div
           className={
-            "absolute w-[43%] left-[18%] max-h-[50vh]  backdrop-blur-lg border-b border-neutral-700/80   top-[10] overflow-auto  z-100"
+            "absolute w-[43%] left-[18%] max-h-[50vh]  backdrop-blur-lg  z-30   top-[10] overflow-auto  "
           }
         >
           {searches.map((s, i) => (
@@ -123,7 +123,7 @@ const Nav = () => {
 
       {/* Dropdown Menu */}
       {isSidenavOpen && (
-        <div className="fixed z-20 backdrop-blur-lg  w-full flex flex-col    ">
+        <div className="fixed z-30 backdrop-blur-lg  w-full flex flex-col    ">
           <nav className=" ml-2 text-white ">
             <h1 className="font-semibold text-xl mt-1  ">Browse :</h1>
             <div className="flex flex-wrap gap-3 ">

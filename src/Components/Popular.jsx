@@ -30,6 +30,8 @@ const Popular = () => {
       console.log("Error: ", error);
     }
   };
+  console.log(popular);
+  
 
   const refreshHandler = async () => {
     if (popular.length === 0) {

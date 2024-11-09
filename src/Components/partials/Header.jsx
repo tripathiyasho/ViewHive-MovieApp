@@ -12,26 +12,38 @@ const Header = ({ data }) => {
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
       }}
-      className="w-full h-[80vh] flex flex-col justify-end items-start p-[5%]"
+      className="w-full h-[80vh]  relative"
     >
-      <h1 className="w-[70%] text-3xl lg:text-5xl font-black text-white">
+      <div className="w-full h-[80vh]  bg-gradient-to-b from-[#141414] to-transparent via-[#04152d]/0 z-10  absolute top-0 left-0"></div>
+      < div className="pl-[5%] absolute w-full bottom-14 flex flex-col justify-start items-start h-[50vh] z-20  ">
+      <h1 className="  w-[70%] text-3xl lg:text-5xl font-black text-white">
         {data.name || data.title || data.original_name || data.original_title}
       </h1>
-      <p className="w-[70%] text-md lg:text-xl mt-3 mb-3 text-white">
+      <p className="w-[70%] text-md lg:text-xl mt-3 mb-3 text-white  ">
         {data.overview.slice(0, 200)}...{" "}
-        <Link to={`/${data.media_type}/details/${data.id}`} className="text-blue-400">more</Link>
+        <Link
+          to={`/${data.media_type}/details/${data.id}`}
+          className="text-blue-400"
+        >
+          more
+        </Link>
       </p>
       <p className="text-white  ">
-                <i className="text-yellow-500 ri-megaphone-fill"></i>{" "}
-                {data.release_date || "No Information"}
-                <i className="ml-5 text-yellow-500 ri-album-fill"></i>{" "}
-                {data.media_type.toUpperCase()}
-            </p>
-            <Link to={`/${data.media_type}/details/${data.id}/trailer`}
-                className="mt-5 bg-[#E50914] p-2 lg:p-5 rounded text-white "
-            >
-                Watch Trailer
-            </Link>
+        <i className="text-yellow-500 ri-megaphone-fill"></i>{" "}
+        {data.release_date || "No Information"}
+        <i className="ml-5 text-yellow-500 ri-album-fill"></i>{" "}
+        {data.media_type.toUpperCase()}
+      </p>
+      <Link
+        to={`/${data.media_type}/details/${data.id}/trailer`}
+        className="mt-5 bg-[#E50914] p-2 lg:p-5 rounded text-white "
+      >
+        Watch Trailer
+      </Link>
+      </div>
+     
+      <div className="w-full h-[80vh]  bg-gradient-to-b from-transparent to-[#141414] via-[#04152d]/0  absolute bottom-0 left-0">
+      </div>
     </div>
   );
 };

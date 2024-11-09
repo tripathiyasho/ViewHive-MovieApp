@@ -7,16 +7,13 @@ import Dropdown from "./partials/Dropdown";
 import Loading from "./Loading";
 import Nav from "./partials/Nav";
 
-
 const Home = () => {
   document.title = "ViewHive | Homapage";
   const [wallpaper, setwallpaper] = useState(null);
-  const [trending, settrending] = useState(null);
-  const [popular, setpopular] = useState(null);  
+  const [trending, settrending] = useState([]);
+  const [popular, setpopular] = useState([]);
   const [category, setcategory] = useState("all");
   const [categoryto, setcategoryto] = useState("tv");
-  
-
 
   const GetHeaderWallpaper = async () => {
     try {
@@ -29,7 +26,7 @@ const Home = () => {
       console.log("Error: ", error);
     }
   };
-  
+
   const GetTrending = async () => {
     try {
       const { data } = await axios.get(`/trending/${category}/day`);
@@ -39,7 +36,6 @@ const Home = () => {
     }
   };
   // console.log(trending);
-  
 
   const GetPopular = async () => {
     try {
@@ -47,34 +43,30 @@ const Home = () => {
       // console.log("API response data:", data); // Log API response
       setpopular(data.results);
     } catch (error) {
-      console.error("Error fetching popular data: ", error.response || error.message);
+      console.error(
+        "Error fetching popular data: ",
+        error.response || error.message
+      );
     }
   };
-  
-  
-  
+
   useEffect(() => {
     !wallpaper && GetHeaderWallpaper();
     GetTrending();
+  }, [category]);
+
+  useEffect(() => {
     GetPopular();
-  }, [category, categoryto]);
+  }, [categoryto]);
 
-  
-  
-
-
-  return wallpaper && trending  ? (
+  return wallpaper && trending ? (
     <>
-      
-      
-      <div
-        className={"w-full h-full overflow-auto overflow-x-hidden "}
-      >
+      <div className={"w-full h-full overflow-auto overflow-x-hidden "}>
+        
         <Nav />
-
         <Header data={wallpaper} />
-
-        <div className="px-5 pt-4 flex items-center justify-between 	">
+  
+        <div className="px-5 pt-4  flex items-center justify-between 	">
           <h1 className="text-lg italic font-semibold text-white  ">
             Trending :
           </h1>
@@ -84,20 +76,17 @@ const Home = () => {
             fucn={(e) => setcategory(e.target.value)}
           />
         </div>
-
         <HorizontalCards data={trending} />
-
         <div className="px-5 pt-4 flex items-center justify-between 	">
           <h1 className="text-lg i font-semibold text-white  italic ">
             Popular :
           </h1>
           <Dropdown
             title="Filter"
-            options={["tv", "movie", ]}
+            options={["tv", "movie"]}
             fucn={(e) => setcategoryto(e.target.value)}
           />
         </div>
-
         <HorizontalCards data={popular} />
       </div>
     </>
