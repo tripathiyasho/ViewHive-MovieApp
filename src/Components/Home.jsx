@@ -14,11 +14,9 @@ const Home = () => {
   const [trending, settrending] = useState(null);
   const [popular, setpopular] = useState(null);  
   const [category, setcategory] = useState("all");
-  const [category2, setcategory2] = useState("tv");
+  const [categoryto, setcategoryto] = useState("tv");
   
- 
 
-  const [isSidenavOpen, setIsSidenavOpen] = useState(false); // State to control sidenav visibility
 
   const GetHeaderWallpaper = async () => {
     try {
@@ -31,6 +29,7 @@ const Home = () => {
       console.log("Error: ", error);
     }
   };
+  
   const GetTrending = async () => {
     try {
       const { data } = await axios.get(`/trending/${category}/day`);
@@ -39,36 +38,39 @@ const Home = () => {
       console.log("Error: ", error);
     }
   };
+  // console.log(trending);
+  
+
   const GetPopular = async () => {
     try {
-      const { data } = await axios.get(`/${category2}/popular`);
+      const { data } = await axios.get(`/${categoryto}/popular`);
+      // console.log("API response data:", data); // Log API response
       setpopular(data.results);
     } catch (error) {
-      console.log("Error: ", error);
+      console.error("Error fetching popular data: ", error.response || error.message);
     }
   };
+  
+  
   
   useEffect(() => {
     !wallpaper && GetHeaderWallpaper();
     GetTrending();
     GetPopular();
-  }, [category,category2]);
+  }, [category, categoryto]);
 
-  const toggleSidenav = () => {
-    setIsSidenavOpen(!isSidenavOpen);
-  };
-
+  
   
 
 
-  return wallpaper && trending||popular ? (
+  return wallpaper && trending  ? (
     <>
       
       
       <div
         className={"w-full h-full overflow-auto overflow-x-hidden "}
       >
-        <Nav toggleSidenav={toggleSidenav} isSide={isSidenavOpen} />
+        <Nav />
 
         <Header data={wallpaper} />
 
@@ -92,7 +94,7 @@ const Home = () => {
           <Dropdown
             title="Filter"
             options={["tv", "movie", ]}
-            fucn={(e) => setcategory2(e.target.value)}
+            fucn={(e) => setcategoryto(e.target.value)}
           />
         </div>
 
