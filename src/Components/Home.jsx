@@ -12,7 +12,12 @@ const Home = () => {
   document.title = "ViewHive | Homapage";
   const [wallpaper, setwallpaper] = useState(null);
   const [trending, settrending] = useState(null);
+  const [popular, setpopular] = useState(null);  
   const [category, setcategory] = useState("all");
+  const [category2, setcategory2] = useState("tv");
+  
+ 
+
   const [isSidenavOpen, setIsSidenavOpen] = useState(false); // State to control sidenav visibility
 
   const GetHeaderWallpaper = async () => {
@@ -34,10 +39,20 @@ const Home = () => {
       console.log("Error: ", error);
     }
   };
+  const GetPopular = async () => {
+    try {
+      const { data } = await axios.get(`/${category2}/popular`);
+      setpopular(data.results);
+    } catch (error) {
+      console.log("Error: ", error);
+    }
+  };
+  
   useEffect(() => {
     !wallpaper && GetHeaderWallpaper();
     GetTrending();
-  }, [category]);
+    GetPopular();
+  }, [category,category2]);
 
   const toggleSidenav = () => {
     setIsSidenavOpen(!isSidenavOpen);
@@ -46,7 +61,7 @@ const Home = () => {
   
 
 
-  return wallpaper && trending ? (
+  return wallpaper && trending||popular ? (
     <>
       
       
@@ -58,8 +73,8 @@ const Home = () => {
         <Header data={wallpaper} />
 
         <div className="px-5 pt-4 flex items-center justify-between 	">
-          <h1 className="text-2xl italic font-semibold text-zinc-400 underline underline-offset-8 ">
-            Trending Today :
+          <h1 className="text-lg italic font-semibold text-white  ">
+            Trending :
           </h1>
           <Dropdown
             title="Filter"
@@ -69,6 +84,19 @@ const Home = () => {
         </div>
 
         <HorizontalCards data={trending} />
+
+        <div className="px-5 pt-4 flex items-center justify-between 	">
+          <h1 className="text-lg i font-semibold text-white  italic ">
+            Popular :
+          </h1>
+          <Dropdown
+            title="Filter"
+            options={["tv", "movie", ]}
+            fucn={(e) => setcategory2(e.target.value)}
+          />
+        </div>
+
+        <HorizontalCards data={popular} />
       </div>
     </>
   ) : (

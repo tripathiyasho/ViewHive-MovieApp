@@ -4,7 +4,7 @@ const Dropdown = ({title,options,fucn}) => {
   return (
     <div className="select">
             <select defaultValue="0" onChange={fucn}  name="format" id="format">
-                <option value="0" disabled>
+                <option value="0" disabled title='category' >
                    {title}
                 </option>
                 {options.map((o, i) => (
@@ -18,3 +18,4 @@ const Dropdown = ({title,options,fucn}) => {
 }
 
 export default Dropdown
+

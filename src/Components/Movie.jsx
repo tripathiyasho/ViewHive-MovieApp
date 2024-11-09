@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import CommonNav from "./partials/CommonNav";
 import Dropdown from "./partials/Dropdown";
 import { useState } from "react";
@@ -7,6 +7,7 @@ import axios from "../utils/axios";
 import Cards from "./partials/Cards";
 import Loading from "./Loading";
 import InfiniteScroll from "react-infinite-scroll-component";
+import NavCommon from "./partials/NavCommon";
 
 const Movie = () => {
   document.title = "ViewHive | Movies";
@@ -55,37 +56,12 @@ const Movie = () => {
 
   return movie.length > 0 ? (
     <div className=" w-screen h-screen ">
-      <div className="px-[3%] mt-4 w-full flex items-center justify-between">
-        <h1 className=" text-2xl font-semibold text-zinc-400">
-          <i
-            onClick={() => navigate(-1)}
-            className="hover:text-[#E50914] ri-arrow-left-line"
-          ></i>{" "}
-          Movie <small className="ml-2 text-sm text-zinc-600">
-                        ({category})
-                    </small>
-        </h1>
-        <div className="flex items-center w-[80%]">
-           <CommonNav />
-          <Dropdown
-            title="Category"
-            options={["popular", "top_rated","upcoming" , "now_playing"]}
-            fucn={(e) => setcategory(e.target.value)}
-          />
-          <div className="w-[2%]"></div>
-        </div>
-      </div>
-      <hr className="border-none h-[2px] mt-4 bg-zinc-400" />
-
-      <InfiniteScroll
-        dataLength={movie.length}
-        next={GetMovie}
-        hasMore={hasMore}
-        loader={<h1>Loading...</h1>}
-      >
-        <Cards data={movie} title="movie" />
-      </InfiniteScroll>
-      <button
+      <NavCommon category={category} setcategory={setcategory}  />
+      <div className="p-4 mt-4 w-full flex items-center justify-center    lg:px-36">
+               
+        <div className="flex items-center  ">
+          
+           <button
         onClick={handleScrollToTop}
         className="fixed bottom-10 right-10 bg-[#E50914] text-white p-2
         w-[5vh] h-[5vh] rounded-full shadow-md hover:bg-[#f40612] transition duration-300 ease-in-out"
@@ -99,6 +75,20 @@ const Movie = () => {
       >
         <i className="ri-home-9-line"></i>
       </button>
+          </div>
+          
+      </div>
+      
+
+      <InfiniteScroll
+        dataLength={movie.length}
+        next={GetMovie}
+        hasMore={hasMore}
+        loader={<h1>Loading...</h1>}
+      >
+        <Cards data={movie} title="movie" />
+      </InfiniteScroll>
+      
     </div>
   ) : (
     <Loading />
