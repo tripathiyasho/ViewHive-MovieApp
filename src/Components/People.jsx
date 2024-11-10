@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import CommonNav from "./partials/CommonNav";
 import { useState } from "react";
 import axios from "../utils/axios";
 import Cards from "./partials/Cards";
