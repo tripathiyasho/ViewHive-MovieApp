@@ -6,6 +6,7 @@ import Cards from "./partials/Cards";
 import Loading from "./Loading";
 import InfiniteScroll from "react-infinite-scroll-component";
 import NavCommon from "./partials/NavCommon";
+import CardLoader from "./partials/CardLoader";
 
 const People = () => {
   document.title = "ViewHive | Peoples";
@@ -47,29 +48,25 @@ const People = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
- 
-
   return people.length > 0 ? (
     <div className=" w-screen h-screen ">
- <NavCommon />
+      <NavCommon />
 
-<div className="w-full mt-3 px-6 md:px-24 flex flex-col md:flex-row md:justify-between items-center">
-  <h1 className="hidden md:inline-block text-4xl md:text-5xl lg:text-6xl font-serif  text-[#beb2b2] animate-pulse tracking-wide ">
-    Celebrities:
-  </h1>
+      <div className="w-full mt-3 px-6 md:px-24 flex flex-col md:flex-row md:justify-between items-center">
+        <h1 className="hidden md:inline-block text-4xl md:text-5xl lg:text-6xl font-serif  text-[#beb2b2] animate-pulse tracking-wide ">
+          Celebrities:
+        </h1>
+      </div>
 
-</div>
-
-      
       <InfiniteScroll
         dataLength={people.length}
         next={GetPeople}
         hasMore={hasMore}
-        loader={<h1>Loading...</h1>}
+        loader={<CardLoader />}
       >
         <Cards data={people} title="person" />
       </InfiniteScroll>
-      
+
       <button
         onClick={handleScrollToTop}
         className="fixed bottom-10 right-10  text-transparent bg-clip-text bg-gradient-to-r from-rose-500 via-red-600 to-rose-700 animate-bounce tracking-wide font-extrabold text-5xl"

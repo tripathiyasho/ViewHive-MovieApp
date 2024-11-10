@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import Dropdown from "./partials/Dropdown";
 import { useState } from "react";
 import axios from "../utils/axios";
@@ -7,7 +6,7 @@ import Cards from "./partials/Cards";
 import Loading from "./Loading";
 import InfiniteScroll from "react-infinite-scroll-component";
 import NavCommon from "./partials/NavCommon";
-
+import CardLoader from "./partials/CardLoader";
 const Popular = () => {
   document.title = "ViewHive | Popular";
 
@@ -85,7 +84,7 @@ const Popular = () => {
         dataLength={popular.length}
         next={GetPopular}
         hasMore={hasMore}
-        loader={<h1>Loading...</h1>}
+        loader={<CardLoader />}
       >
         <Cards data={popular} title={category} />
       </InfiniteScroll>

@@ -15,13 +15,13 @@ const Cards = ({ data, title }) => {
       {data.map((c, i) => (
         <Link
           to={`/${c.media_type || title}/details/${c.id}`}
-          className="relative w-[48%] sm:w-[48%] md:w-[30%] lg:w-[22%] h-auto bg-[#1c1c1c] rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105"
+          className="relative w-[70%] sm:w-[48%] md:w-[30%] lg:w-[20%]  h-[20%] bg-[#1c1c1c] rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105"
           key={i}
         >
           <div className="relative overflow-hidden rounded-t-lg">
             <img
-              
-              className="w-full h-[40vh] object-cover rounded-t-lg"
+              loading="lazy"
+              className="w-full h-[50vh] object-cover rounded-t-lg"
               src={
                 c.poster_path || c.backdrop_path || c.profile_path
                   ? `https://image.tmdb.org/t/p/original/${
@@ -51,7 +51,7 @@ const Cards = ({ data, title }) => {
             >
               <div className="relative w-full h-full flex items-center justify-center">
                 <div
-                  className="absolute inset-0 rounded-full border-4 border-current border-r-transparent animate-spin-slow"
+                  className="absolute inset-0 rounded-full border-4 border-current border-b-transparent "
                   style={{
                     transform: `rotate(${(c.vote_average / 10) * 180}deg)`,
                   }}

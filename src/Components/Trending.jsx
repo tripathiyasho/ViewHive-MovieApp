@@ -6,10 +6,10 @@ import axios from "../utils/axios";
 import Cards from "./partials/Cards";
 import Loading from "./Loading";
 import InfiniteScroll from "react-infinite-scroll-component";
+import CardLoader from "./partials/CardLoader";
 
 const Trending = () => {
   document.title = "ViewHive | Trending";
-
 
   const [category, setcategory] = useState("all");
   const [duration, setduration] = useState("day");
@@ -52,18 +52,16 @@ const Trending = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-
-
   return trending.length > 0 ? (
     <div className=" w-screen h-screen ">
       <NavCommon />
 
-<div className="w-full mt-3 px-6 md:px-24 flex flex-col md:flex-row md:justify-between items-center">
-  <h1 className="hidden md:inline-block text-4xl md:text-5xl lg:text-6xl font-serif  text-[#beb2b2] animate-pulse tracking-wide ">
-    Trending:
-  </h1>
-<div className="flex gap-4">
-<Dropdown
+      <div className="w-full mt-3 px-6 md:px-24 flex flex-col md:flex-row md:justify-between items-center">
+        <h1 className="hidden md:inline-block text-4xl md:text-5xl lg:text-6xl font-serif  text-[#beb2b2] animate-pulse tracking-wide ">
+          Trending:
+        </h1>
+        <div className="flex gap-4">
+          <Dropdown
             title="Category"
             options={["movie", "tv", "all"]}
             fucn={(e) => setcategory(e.target.value)}
@@ -74,16 +72,14 @@ const Trending = () => {
             options={["week", "day"]}
             fucn={(e) => setduration(e.target.value)}
           />
-</div>
- 
-</div>
-     
+        </div>
+      </div>
 
       <InfiniteScroll
         dataLength={trending.length}
         next={GetTrending}
         hasMore={hasMore}
-        loader={<h4>Loading...</h4>}
+        loader={<CardLoader />}
       >
         <Cards data={trending} title={category} />
       </InfiniteScroll>

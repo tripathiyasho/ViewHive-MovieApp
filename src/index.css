@@ -21,6 +21,7 @@
 
 :root {
   font-family: "Poppins", sans-serif;
+  color-scheme: dark;
 }
 /* Faster rotation ot ring */
 @keyframes spin-fast {

@@ -6,7 +6,7 @@ import Cards from "./partials/Cards";
 import Loading from "./Loading";
 import InfiniteScroll from "react-infinite-scroll-component";
 import NavCommon from "./partials/NavCommon";
-
+import CardLoader from "./partials/CardLoader";
 const Movie = () => {
   document.title = "ViewHive | Movies";
   const [category, setcategory] = useState("now_playing");
@@ -67,7 +67,7 @@ const Movie = () => {
         dataLength={movie.length}
         next={GetMovie}
         hasMore={hasMore}
-        loader={<h1>Loading...</h1>}
+        loader={<CardLoader />}
       >
         <Cards data={movie} title="movie" />
       </InfiniteScroll>

@@ -5,11 +5,11 @@ const ContactUs = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    message: ""
+    message: "",
   });
 
   const navigate = useNavigate();
-
+  document.title = "ViewHive | Contact Us";
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -31,7 +31,10 @@ const ContactUs = () => {
           onClick={() => navigate(-1)}
           className="text-xl hover:text-[#E50914] ri-arrow-left-line cursor-pointer"
         ></i>
-        <button onClick={handleHomeNavigation} className="text-xl hover:text-[#E50914]">
+        <button
+          onClick={handleHomeNavigation}
+          className="text-xl hover:text-[#E50914]"
+        >
           <i className="ri-home-9-line"></i>
         </button>
       </div>
@@ -87,14 +90,15 @@ const ContactUs = () => {
           <div className="text-center md:text-left">
             <p className="text-lg">We’d love to hear from you!</p>
             <p className="mt-4">
-              Whether you have a question, a suggestion, or just want to connect, feel free to reach out.
+              Whether you have a question, a suggestion, or just want to
+              connect, feel free to reach out.
             </p>
             <p className="mt-4">
               <strong>Email:</strong> yasho130802@gmail.com <br />
               <strong>Phone:</strong> +91 9192919291
             </p>
           </div>
-          
+
           {/* Map Section */}
           <div className="w-full">
             <iframe
@@ -106,7 +110,7 @@ const ContactUs = () => {
               className="rounded-md shadow-lg"
             ></iframe>
           </div>
-          
+
           {/* Social Links */}
           <div className="mt-6 flex space-x-6">
             <a

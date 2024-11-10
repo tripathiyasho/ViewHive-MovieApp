@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
 import noimage from "/noimage.jpg";
 
 const HorizontalCards = ({ data, title }) => {
@@ -15,6 +14,7 @@ const HorizontalCards = ({ data, title }) => {
           >
             <div className="relative h-[55%] w-full overflow-hidden rounded-t-xl">
               <img
+                loading="lazy" 
                 className="w-full h-full object-cover transition-opacity duration-300 opacity-90 hover:opacity-100"
                 src={
                   d.backdrop_path || d.poster_path
@@ -27,7 +27,7 @@ const HorizontalCards = ({ data, title }) => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
             </div>
-            <div className="text-white p-3 h-[45%] space-y-2">
+            <div className="text-white p-3 h-[45%] space-y-2 overflow-y-auto">
               <h1 className="text-lg font-semibold leading-tight">
                 {d.name || d.title || d.original_name || d.original_title}
               </h1>

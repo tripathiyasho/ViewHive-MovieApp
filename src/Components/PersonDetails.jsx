@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { asyncloadperson, removeperson } from "../store/actions/personActions";
-import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import HorizontalCards from "./partials/HorizontalCards";
 import Loading from "./Loading";
 import Dropdown from "./partials/Dropdown";
@@ -30,22 +30,23 @@ const PersonDetails = () => {
           onClick={() => navigate(-1)}
           className="hover:text-[#E50914] ri-arrow-left-line"
         ></Link>
-         <button
-            onClick={() => navigate("/")}
-            className="hover:text-[#E50914] "
-          >
-            <i className="ri-home-9-line"></i>
-          </button>
+        <button onClick={() => navigate("/")} className="hover:text-[#E50914] ">
+          <i className="ri-home-9-line"></i>
+        </button>
       </nav>
 
-      <div className="w-full flex ">
+      <div className="w-full flex flex-col md:flex-row ">
         {/* Part 2 : left Poster and Details */}
-        <div className="w-[20%] ">  
-          <img
-            className="shadow-[8px_17px_38px_2px_rgba(0,0,0,.5)] rounded-lg h-[35vh] object-cover hover:shadow-red-400"
+        <div className="w-[100%] md:w-[20%] ">
+          <img 
+            loading="lazy"
+            className="shadow-[8px_17px_38px_2px_rgba(0,0,0,.5)] rounded-lg h-[35vh] object-cover hover:shadow-red-400 "
             src={`https://image.tmdb.org/t/p/original/${info.detail.profile_path}`}
             alt=""
           />
+          <h1 className=" text-4xl md:hidden text-zinc-400 font-black mt-6 underline underline-offset-4">
+            {info.detail.name}
+          </h1>
           <hr className="mt-10 mb-5 border-none h-[2px] bg-zinc-500" />
           {/* Social Media Links */}
           <div className=" text-2xl text-white flex gap-x-5">
@@ -77,9 +78,7 @@ const PersonDetails = () => {
             </a>
           </div>
           {/* Personal Information */}
-          <h1 className="text-2xl text-zinc-400 font-semibold my-5">
-            About :
-          </h1>
+          <h1 className="text-3xl text-zinc-400 font-semibold my-5">About :</h1>
 
           {/* <h1 className="text-lg text-zinc-400 font-semibold ">Known For</h1>
           <h1 className=" text-zinc-400 ">
@@ -119,12 +118,14 @@ const PersonDetails = () => {
         </div>
 
         {/* Part 3 right Details and information  */}
-        <div className="w-[80%] ml-[5%]">
-          <h1 className="text-6xl text-zinc-400 font-black my-5">
+        <div className="w-[100%] md:w-[80%] md:ml-[5%] ">
+          <h1 className="hidden md:block text-4xl md:text-6xl text-zinc-400 font-black my-5">
             {info.detail.name}
           </h1>
 
-          <h1 className="text-xl text-zinc-400 font-semibold ">Biography : </h1>
+          <h1 className="text-xl text-zinc-400 font-semibold mt-5">
+            Biography :{" "}
+          </h1>
           <p className="text-zinc-400 mt-3 ">{info.detail.biography}</p>
 
           <h1 className="mt-5 text-lg text-zinc-400 font-semibold ">
@@ -132,7 +133,7 @@ const PersonDetails = () => {
           </h1>
           <HorizontalCards data={info.combinedCredits.cast} />
 
-          <div className="w-full flex justify-between mb">
+          <div className="w-full flex justify-between items-center">
             <h1 className="mt-5 text-xl text-zinc-400 font-semibold ">
               Career :
             </h1>

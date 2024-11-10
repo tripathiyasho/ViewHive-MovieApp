@@ -31,6 +31,7 @@ const Home = () => {
     try {
       const { data } = await axios.get(`/trending/${category}/day`);
       settrending(data.results);
+      console.log("API response data:", data);
     } catch (error) {
       console.log("Error: ", error);
     }
@@ -40,7 +41,7 @@ const Home = () => {
   const GetPopular = async () => {
     try {
       const { data } = await axios.get(`/${categoryto}/popular`);
-      // console.log("API response data:", data); // Log API response
+      console.log("API response data:", data); // Log API response
       setpopular(data.results);
     } catch (error) {
       console.error(
@@ -62,10 +63,9 @@ const Home = () => {
   return wallpaper && trending ? (
     <>
       <div className={"w-full h-full overflow-auto overflow-x-hidden "}>
-        
         <Nav />
         <Header data={wallpaper} />
-  
+
         <div className="px-5 pt-4  flex items-center justify-between 	">
           <h1 className="text-lg italic font-semibold text-white  ">
             Trending :
@@ -76,7 +76,7 @@ const Home = () => {
             fucn={(e) => setcategory(e.target.value)}
           />
         </div>
-        <HorizontalCards data={trending} />
+        <HorizontalCards data={trending} title={category} />
         <div className="px-5 pt-4 flex items-center justify-between 	">
           <h1 className="text-lg i font-semibold text-white  italic ">
             Popular :
@@ -87,7 +87,7 @@ const Home = () => {
             fucn={(e) => setcategoryto(e.target.value)}
           />
         </div>
-        <HorizontalCards data={popular} />
+        <HorizontalCards data={popular} title={categoryto} />
       </div>
     </>
   ) : (
