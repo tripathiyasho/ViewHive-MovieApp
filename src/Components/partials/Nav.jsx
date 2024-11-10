@@ -26,10 +26,10 @@ const Nav = () => {
   }, [query]);
   return (
     <>
-      <nav className="sticky top-0 z-50 backdrop-blur-lg border-neutral-700/80  lg:text-sm text-white">
+      <nav className="w-full overflow-hidden sticky top-0 z-50 backdrop-blur-lg border-neutral-700/80  lg:text-sm text-white">
         <div className="flex justify-between items-center flex-shrink-0 lg:p-2">
           {/* menu */}
-          <div className="ml-1 ">
+          <div className="ml-3 ">
             <button onClick={toggleSidenav}>
               {isSidenavOpen ? (
                 <i className=" ri-close-circle-line text-2xl lg:hover:text-[#E50914]  "></i>
@@ -43,7 +43,7 @@ const Nav = () => {
 
           {/*search bar*/}
           <div className="hidden  lg:flex items-center flex-shrink-0 ">
-            <i className="pl-48 text-xl ri-search-line  "></i>
+            <i className="pl-24 text-xl ri-search-line  "></i>
             <input
               onChange={(e) => setquery(e.target.value)}
               value={query}
@@ -61,7 +61,7 @@ const Nav = () => {
           {/* logo*/}
           <div className="flex items-center px-10 flex-shrink-0 text-lg">
             {
-              <div className=" hidden lg:flex  px-10">
+              <div className=" hidden lg:flex  px-2">
                 <Link
                   to="/movie"
                   className="hover:text-[#E50914]  duration-300 rounded-lg p-3"
@@ -80,7 +80,7 @@ const Nav = () => {
             }
 
             {
-              <h1 className="text-xl text-white text-center mb-3 mt-3 ">
+              <h1 className="text-xl text-white text-center my-3  ">
                 <i className="text-[#E50914]  ri-projector-2-fill mr-2  "></i>
                 <span className="font-bold">ViewHive</span>
               </h1>
@@ -92,7 +92,7 @@ const Nav = () => {
       {!isSidenavOpen && (
         <div
           className={
-            "absolute w-[43%] left-[18%] max-h-[50vh]  backdrop-blur-lg  z-30   top-[10] overflow-auto  "
+            "absolute w-[43%] left-[16%] max-h-[50vh]  backdrop-blur-lg  z-30   top-[10] overflow-auto  "
           }
         >
           {searches.map((s, i) => (
@@ -165,10 +165,16 @@ const Nav = () => {
             </div>
             <h1 className="font-semibold text-xl  ">Website Information :</h1>
             <div className="flex flex-wrap gap-3 mb-4">
-              <Link className=" hover:bg-[#E50914]  duration-300 rounded-lg p-3">
+              <Link
+                to="/aboutus"
+                className=" hover:bg-[#E50914]  duration-300 rounded-lg p-3"
+              >
                 <i className=" ri-information-fill mr-1"></i> About ViewHive
               </Link>
-              <Link className=" hover:bg-[#E50914]  duration-300 rounded-lg p-3">
+              <Link
+                to="/contactus"
+                className=" hover:bg-[#E50914]  duration-300 rounded-lg p-3"
+              >
                 <i className=" ri-phone-fill mr-1"></i>
                 Contact Us
               </Link>
