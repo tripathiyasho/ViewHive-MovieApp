@@ -41,7 +41,7 @@ const Home = () => {
   const GetPopular = async () => {
     try {
       const { data } = await axios.get(`/${categoryto}/popular`);
-      console.log("API response data:", data); // Log API response
+      // console.log("API response data:", data); // Log API response
       setpopular(data.results);
     } catch (error) {
       console.error(
