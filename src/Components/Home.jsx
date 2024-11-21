@@ -31,7 +31,7 @@ const Home = () => {
     try {
       const { data } = await axios.get(`/trending/${category}/day`);
       settrending(data.results);
-      console.log("API response data:", data);
+      // console.log("API response data:", data);
     } catch (error) {
       console.log("Error: ", error);
     }
