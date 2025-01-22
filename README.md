@@ -33,7 +33,6 @@
   - [🧪 Testing](#🧪-testing)
 - [📌 Project Roadmap](#-project-roadmap)
 - [🔰 Contributing](#-contributing)
-- [🎗 License](#-license)
 - [🙌 Acknowledgments](#-acknowledgments)
 
 ---
@@ -448,9 +447,10 @@ Run the test suite using the following command:
 
 We would like to express our sincere gratitude to everyone who has contributed to the development of ViewHive. This project would not have been possible without the support, guidance, and inspiration from the following:
 
-- ** API Providers - A big thanks to the creators of TMDB API for providing the comprehensive movie database and enabling seamless integration.
-- ** Open Source Community - We are grateful to the open-source community for the tools, libraries, and resources that made this project possible.
-- ** Users - Finally, a heartfelt thanks to our users for their valuable feedback, enthusiasm, and support in making ViewHive a reality.
+-  API Providers - A big thanks to the creators of TMDB API for providing the comprehensive movie database and enabling seamless integration.
+-  Open Source Community - We are grateful to the open-source community for the tools, libraries, and resources that made this project possible.
+-  Users - Finally, a heartfelt thanks to our users for their valuable feedback, enthusiasm, and support in making ViewHive a reality.
+
 Your encouragement and collaboration have been instrumental in bringing this project to life. We look forward to further enhancing the app and continuing to serve the movie enthusiast community. 🙌
 
 ---
