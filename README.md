@@ -40,18 +40,17 @@
 
 ## 📍 Overview
 
-<code>❯ ViewHive is a modern, user-friendly movie discovery and tracking application designed to provide a seamless experience for movie enthusiasts. With an intuitive interface and robust features, ViewHive makes it easy to explore the latest movies, track your favorites, and stay updated with trending content in the entertainment world. Built with a focus on performance and design, it integrates powerful APIs to deliver accurate and real-time movie data.
-</code>
+ViewHive is a modern, user-friendly movie discovery and tracking application designed to provide a seamless experience for movie enthusiasts. With an intuitive interface and robust features, ViewHive makes it easy to explore the latest movies, track your favorites, and stay updated with trending content in the entertainment world. Built with a focus on performance and design, it integrates powerful APIs to deliver accurate and real-time movie data.
 
 ---
 
 ## 👾 Features
 
-<code>❯ Discover Movies: Browse a curated list of popular, top-rated, and trending movies.
+Discover Movies: Browse a curated list of popular, top-rated, and trending movies.
 Search Functionality: Find movies effortlessly using a robust search system.
 Detailed Movie Information: View comprehensive details about movies, including synopsis, cast, release date, and ratings.
 Personalized Experience: Save your favorite movies for quick access and future reference.
-Responsive Design: Fully optimized for both desktop and mobile devices, ensuring a great user experience on all screen sizes.</code>
+Responsive Design: Fully optimized for both desktop and mobile devices, ensuring a great user experience on all screen sizes.
 
 ---
 
@@ -449,9 +448,9 @@ Run the test suite using the following command:
 
 We would like to express our sincere gratitude to everyone who has contributed to the development of ViewHive. This project would not have been possible without the support, guidance, and inspiration from the following:
 
-API Providers - A big thanks to the creators of TMDB API for providing the comprehensive movie database and enabling seamless integration.
-Open Source Community - We are grateful to the open-source community for the tools, libraries, and resources that made this project possible.
-Users - Finally, a heartfelt thanks to our users for their valuable feedback, enthusiasm, and support in making ViewHive a reality.
+- ** API Providers - A big thanks to the creators of TMDB API for providing the comprehensive movie database and enabling seamless integration.
+- ** Open Source Community - We are grateful to the open-source community for the tools, libraries, and resources that made this project possible.
+- ** Users - Finally, a heartfelt thanks to our users for their valuable feedback, enthusiasm, and support in making ViewHive a reality.
 Your encouragement and collaboration have been instrumental in bringing this project to life. We look forward to further enhancing the app and continuing to serve the movie enthusiast community. 🙌
 
 ---
